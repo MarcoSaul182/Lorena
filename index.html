@@ -8,22 +8,67 @@
     <link href="http://fonts.cdnfonts.com/css/hellomissthang" rel="stylesheet">
     <link rel="stylesheet" href="lore.css">
     <title>Lorena</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: black; /* Fondo negro para mejor contraste */
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        h1 {
+            color: white; /* Cambia el color según el fondo */
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Hello Miss Thang', sans-serif; /* Asegúrate de que esta fuente esté disponible */
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <div>
-        <video id="backgroundVideo" autoplay preload loop>
+        <video id="backgroundVideo" autoplay preload loop muted>
             <source src="Noche De Brujas Video.mp4" type="video/mp4">
             Tu navegador no soporta el video.
         </video>
         <h1>Me encantas</h1>
         <h1>muchisimo</h1>
         <h1>Lorena <3</h1>
+        <button id="soundButton">Activar sonido</button>
     </div>
     <script>
-        // Se reproduce el video con sonido
-        document.getElementById('backgroundVideo').muted = false;
-        document.getElementById('backgroundVideo').play();
+        const video = document.getElementById('backgroundVideo');
+        const soundButton = document.getElementById('soundButton');
+
+        // Función para activar el sonido
+        soundButton.addEventListener('click', () => {
+            video.muted = false; // Habilitar sonido
+            video.play(); // Reproducir video
+            soundButton.style.display = 'none'; // Ocultar botón
+        });
     </script>
 </body>
 
