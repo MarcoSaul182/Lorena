@@ -12,11 +12,19 @@
 
 <body>
     <div>
-        <video autoplay  preload loop src="Noche De Brujas Video.mp4"> </video>
+        <video id="backgroundVideo" autoplay preload loop>
+            <source src="Noche De Brujas Video.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
         <h1>Me encantas</h1>
         <h1>muchisimo</h1>
         <h1>Lorena <3</h1>
     </div>
+    <script>
+        // Se reproduce el video con sonido
+        document.getElementById('backgroundVideo').muted = false;
+        document.getElementById('backgroundVideo').play();
+    </script>
 </body>
 
 </html>
